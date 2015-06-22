@@ -1,0 +1,46 @@
+﻿<Properties StartupItem="web.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/AOCodesController.cs">
+    <Files>
+      <File FileName="Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="Global.asax.cs" Line="38" Column="38" />
+      <File FileName="Scripts/built/controllers/fracregControllers.js" Line="1" Column="1" />
+      <File FileName="Scripts/built/directives.js" Line="1" Column="1" />
+      <File FileName="Scripts/built/services.js" Line="1" Column="1" />
+      <File FileName="Controllers/FacilitiesController.cs" Line="1" Column="1" />
+      <File FileName="js/built/services.js" Line="41" Column="57" />
+      <File FileName="Controllers/TreatmentDelaysController.cs" Line="1" Column="1" />
+      <File FileName="js/built/controllers/fracregControllers.js" Line="1" Column="1" />
+      <File FileName="Controllers/SecondaryProcedureReasonsController.cs" Line="21" Column="46" />
+      <File FileName="Scripts/built/controllers/aoSelectionDialogController.js" Line="1" Column="1" />
+      <File FileName="static/ao_codes.yaml" Line="1" Column="1" />
+      <File FileName="yaml_loader/Loader.cs" Line="16" Column="24" />
+      <File FileName="index.html" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Controllers/AOCodesController.cs" Line="21" Column="62" NotebookId="1" />
+      <File FileName="yaml_reader/Program.cs" Line="10" Column="49" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.yaml__loader__cli>
+    <MonoDevelop.Ide.CustomExecutionModes>
+      <Data Name="Default (Custom)" Id="7e50a132-d78e-431a-b7e5-5dabce5c5e1c" ModeId="Default">
+        <CommandData>
+          <Item Key="MonoDevelop.Ide.Execution.CustomArgsCustomizer">
+            <Value Arguments="~/sandbox/aspnet/fracreg/static/ao_codes.yaml" ctype="CustomArgsExecutionModeData">
+              <EnvironmentVariables />
+            </Value>
+          </Item>
+          <Item Key="MonoDevelop.Ide.Execution.MonoExecutionCustomizer">
+            <Value ctype="MonoExecutionParameters" />
+          </Item>
+        </CommandData>
+      </Data>
+    </MonoDevelop.Ide.CustomExecutionModes>
+  </MonoDevelop.Ide.ItemProperties.yaml__loader__cli>
+</Properties>

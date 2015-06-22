@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html ng-app="fracregApp">
+    <head>
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="js/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylsheet" href="js/bootstrap-table/dist/bootstrap-table.min.css">
+
+        <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/angular/angular.js"></script>
+        <script src="js/angular-route/angular-route.js"></script>
+        <script src="js/angular-resource/angular-resource.js"></script>
+        <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+        <Script src="js/bootstrap-table/dist/bootstrap-table.min.js"></script>
+        <script src="js/underscore/underscore-min.js"></script>
+        <script src="js/snap.svg/dist/snap.svg-min.js"></script>
+        <script src="js/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="js/angular-ui-select/dist/select.min.js"></script>
+        <script src="js/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="js/angular-multi-select/isteven-multi-select.js"></script>
+
+        <script src="js/built/app.js"></script>
+        <script src="js/built/controllers/aoSelectionDialogController.js"></script>
+        <script src="js/built/controllers/fracregControllers.js"></script>
+        <script src="js/built/controllers/feedbackControllers.js"></script>
+        <script src="js/built/directives.js"></script>
+        <script src="js/built/services.js"></script>
+
+        <!--    <script src="Scripts/jquery-1.9.1.js"></script>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular-route.js"></script>
+        <script src="Scripts/angular-resource.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/bootstrap-table.js"></script>
+        <script src="Scripts/underscore.js"></script>
+        <script src="Scripts/snap/snap.svg.js"></script>
+        <script src="Scripts/angular-sanitize.js"></script>
+        <script src="Scripts/angular-ui.js"></script>
+
+        <script src="Scripts/angular-bootstrap.js"></script>
+
+
+        <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+        <script src="Scripts/built/app.js"></script>
+        <script src="Scripts/built/controllers/aoSelectionDialogController.js"></script>
+        <script src="Scripts/built/controllers/fracregControllers.js"></script>
+        <script src="Scripts/built/controllers/feedbackControllers.js"></script>
+        <script src="Scripts/built/directives.js"></script>
+        <script src="Scripts/built/services.js"></script>-->
+    </head>
+    <body ng-app>
+        <div class="container-fluid" ng-controller="FracRegCtrl">
+            <div class="row">
+                <h1>Frakturregister</h1>
+            </div>
+            <div class="row">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#previous-procedures" aria-controls="previous-procedures" role="tab" data-toggle="tab">Tidligere prosedyrer</a></li>
+                        <li role="presentation"><a href="#injury-info" aria-controls="injury-info" role="tab" data-toggle="tab">Skade detaljer</a></li>
+                        <li role="presentation"><a href="#procedure-info" aria-controls="procedure-info" role="tab" data-toggle="tab">Prosedyr detaljer</a></li>
+                        <li role="presentation"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Oppsumering</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="previous-procedures">
+                            <div class="container-fluid">
+                                <div class="row">
+
+                                    <!-- facility/procedure selection on one half of screen. -->
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Anlegg</div>
+                                                <div class="panel-body">
+                                                    <table fracreg-facilities-table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-field="state" data-checkbox="true"></th>
+                                                                <th data-field="facility" data-align="right">Facility</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Prosedyr</div>
+                                                <div class="panel-body">
+                                                    <table fracreg-previous-procedures-table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-field="state" data-checkbox="true"></th>
+                                                                <th data-field="facility" data-align="right">Facility</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end of first column -->
+
+                                    <!-- complications on another half -->
+                                    <div class="col-md-6">
+                                        <div ng-if="previousFacility">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Ikke komplikasjoner</div>
+                                                        <div class="panel-body">
+                                                            <form>
+                                                                <div ng-repeat="comp in noneComplications">
+                                                                    <input type="checkbox"
+                                                                            value="{{comp.text}}"
+                                                                            ng-model="comp.selected"> {{comp.text}}
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Lett komplikasjoner</div>
+                                                        <div class="panel-body">
+                                                            <form>
+                                                                <div ng-repeat="comp in simpleComplications">
+                                                                    <input type="checkbox"
+                                                                            value="{{comp.text}}"
+                                                                            ng-model="comp.selected"> {{comp.text}}
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Alvorlig komplikasjoner</div>
+                                                        <div class="panel-body">
+                                                            <form>
+                                                                <div ng-repeat="comp in seriousComplications">
+                                                                    <input type="checkbox"
+                                                                            value="{{comp.text}}"
+                                                                            ng-model="comp.selected"> {{comp.text}}
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="injury-info">
+                            <div>
+                                <script type="text/ng-template" id="aoSelectionDialog.html">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Velg AO Kode</h4>
+                                    </div>
+                                    <div class="modal-body row">
+                                        <div ng-repeat="ao_info in prefixedAoCodes">
+                                            <div class="col-md-3">
+                                                <img src="/AOCodes/Image/{{ao_info.id}}" height="50px" ng-click="select(ao_info)"/><br>
+                                                <label>{{ao_info.id}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                                    </div>
+                                </script>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Velg fraktur</div>
+                                            <div class="panel-body">
+                                                <fracreg-skeleton-image>
+                                                    <object type="image/svg+xml" id="ao-skeleton-image" data="static/images/skeleton.svg" height="700px">Your browser does not support SVG</object>
+                                                </fracreg-skeleton-image>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div id="ao-info-display"></div>
+                                        <div class="form">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">AO Kode</div>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-8">
+                                                            <h3>
+                                                                <div ng-if="aoInfo">
+                                                                    <label>Valgt:</label> {{aoInfo.text}} {{aoInfo.id}}
+                                                                </div>
+                                                                <div ng-if="!aoInfo">
+                                                                    <label>Ikke valgt (obligatorisk)</label>
+                                                                </div>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <img src="/AOCodes/Image/{{aoInfo.id}}" height="100">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Tid</div>
+                                                <div class="panel-body">
+                                                    <div class="form-group">
+                                                        <label for="injury-time-input" class="control-label">Skadetidspunkt</label>
+                                                        <input type="number" name="quantity" min="0" max="23" ng-model="hour">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="injury-date-input" class="control-label">Traumadato</label>
+                                                        <input type="date" class="form-control" ng-model="date"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="treatment-delay-select" class="control-label">Forsinkelse</label>
+
+                                                        <ui-select ng-model="treatmentDelay.selected">
+                                                            <ui-select-match allow-clear="false">{{$select.selected.text}}</ui-select-match>
+                                                            <ui-select-choices repeat="delay in treatmentDelay.options">
+                                                                <div ng-bind-html="delay.text"></div>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Luksasjon/subluksasjon</div>
+                                                <div class="panel-body">
+                                                    <ui-select ng-model="dislocation.selected" ng-disabled="aoInfo === null" theme="bootstrap">
+                                                        <ui-select-match allow-clear="true" placeholder="Velg...">{{$select.selected.text}}</ui-select-match>
+                                                        <ui-select-choices repeat="dislocation in dislocation.options">
+                                                            <div ng-bind-html="dislocation.text"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Åpen fraktur</div>
+                                                <div class="panel-body">
+                                                    <ui-select ng-model="openFractureClassification.selected" ng-disabled="aoInfo === null" theme="bootstrap">
+                                                        <ui-select-match allow-clear="true" placeholder="Velg...">{{$select.selected.text}}</ui-select-match>
+                                                        <ui-select-choices repeat="classification in openFractureClassification.options">
+                                                            <div ng-bind-html="classification.text"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Patologisk/periimplantat/ost. imperfekta</div>
+                                                <div class="panel-body">
+                                                    <div isteven-multi-select
+                                                            input-model="pathology.options"
+                                                            output-model="pathology.selected"
+                                                            button-label="text"
+                                                            item-label="text"
+                                                            tick-property="selected"
+                                                            style="width: 100%;"
+                                                            translation="multiSelectLocalLang",
+                                                            is-disabled="aoInfo === null">
+                                                    </div>
+                                                    <textarea ng-model="pathologyDescription" ng-disabled="aoInfo === null" class="form-control">
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="procedure-info">
+                            <!-- <%include file="procedure_info.mak"/> -->
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="summary">
+                            <!-- <%include file="summary.mak"/> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

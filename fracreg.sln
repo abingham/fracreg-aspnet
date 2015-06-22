@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yaml_loader_cli", "yaml_reader\yaml_loader_cli.csproj", "{20B53CDF-E91B-4165-83CE-697E75F449B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fracreg", "fracreg", "{9BA941B9-15BE-4615-9DDC-CC2605F38BE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "web.csproj", "{73D3C901-ED0D-44E8-8B63-99E740893978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yaml_loader", "yaml_loader\yaml_loader.csproj", "{B9B08F07-D35F-4CB2-9A49-BFFF3FC6203D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20B53CDF-E91B-4165-83CE-697E75F449B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B53CDF-E91B-4165-83CE-697E75F449B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B53CDF-E91B-4165-83CE-697E75F449B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B53CDF-E91B-4165-83CE-697E75F449B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D3C901-ED0D-44E8-8B63-99E740893978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D3C901-ED0D-44E8-8B63-99E740893978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D3C901-ED0D-44E8-8B63-99E740893978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D3C901-ED0D-44E8-8B63-99E740893978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9B08F07-D35F-4CB2-9A49-BFFF3FC6203D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9B08F07-D35F-4CB2-9A49-BFFF3FC6203D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9B08F07-D35F-4CB2-9A49-BFFF3FC6203D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9B08F07-D35F-4CB2-9A49-BFFF3FC6203D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{73D3C901-ED0D-44E8-8B63-99E740893978} = {9BA941B9-15BE-4615-9DDC-CC2605F38BE1}
+		{B9B08F07-D35F-4CB2-9A49-BFFF3FC6203D} = {9BA941B9-15BE-4615-9DDC-CC2605F38BE1}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.AfterDelegateDeclarationParameterComma = True
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.inheritsSet = VisualStudio
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+		$0.TextStylePolicy = $4
+		$4.inheritsSet = null
+		$4.scope = text/html
+	EndGlobalSection
+EndGlobal

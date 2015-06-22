@@ -1,0 +1,218 @@
+# http://ota.org/media/23184/97042.18Spine-S129-S132.pdf
+spine:
+  cervical:
+    _prefix: 51
+    compression:
+      _classifications:
+        A1: "impaction"
+        A2: "split"
+        A3: "burst"
+    distraction:
+      _classifications:
+        B1: "posterior disruption ligamentous"
+        B2: "posterior disruption osseous"
+        B3: "anterior disruption through disc"
+    multidirectional:
+      _classifications:
+        C1: "rotational wedge"
+        C2: "flexion subluxation with rotation"
+        C3: "rotational shear injury"
+  thoracic:
+    _prefix: 52
+    compression:
+      _classifications:
+        A1: "impaction"
+        A2: "split"
+        A3: "burst"
+    distraction:
+      _classifications:
+        B1: "posterior disruption ligamentous"
+        B2: "posterior disruption osseous"
+        B3: "anterior disruption through disc"
+    multidirectional:
+      _classifications:
+        C1: "rotational wedge"
+        C2: "flexion subluxation with rotation"
+        C3: "rotational shear injury"
+  lumbar:
+    _prefix: 53
+    compression:
+      _classifications:
+        A1: "impaction"
+        A2: "split"
+        A3: "burst"
+    distraction:
+      _classifications:
+        B1: "posterior disruption ligamentous"
+        B2: "posterior disruption osseous"
+        B3: "anterior disruption through disc"
+    multidirectional:
+      _classifications:
+        C1: "rotational wedge"
+        C2: "flexion subluxation with rotation"
+        C3: "rotational shear injury"
+
+
+femur:
+  proximal:
+    _prefix: 31
+    troch:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    neck:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    head:
+      _classifications:
+        C1: ""
+        C2: ""
+        C3: ""
+
+  shaft:
+    _prefix: 32
+    simple:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    wedge:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    complex:
+      _classifications:
+        C1: ""
+        C2: ""
+        C3: ""
+
+  distal:
+    _prefix: 33
+    extra:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    partial:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    complete:
+      _classifications:
+        C1: ""
+        C2: ""
+        C3: ""
+
+patella:
+  _prefix: 34
+  extra:
+    _classifications:
+      A1: avulsion
+      A2: isolated body
+  partial:
+    _classifications:
+      B1: vertical, lateral
+      B2: vertical, medial
+  complete:
+    _classifications:
+      C1: transverse
+      C2: transverse plus second fragment
+      C3: complex
+
+tibia:
+  proximal:
+    _prefix: 41
+    extra:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    partial:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    complete:
+      _classficiations:
+        C1: ""
+        C2: ""
+        C3: ""
+  shaft:
+    _prefix: 42
+    simple:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    wedge:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    complex:
+      _classficiations:
+        C1: ""
+        C2: ""
+        C3: ""
+  distal:
+    _prefix: 43
+    extra:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    partial:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    complete:
+      _classficiations:
+        C1: ""
+        C2: ""
+        C3: ""
+
+# http://ota.org/media/23066/97042.7Pelvis-S59-S67.pdf
+pelvis:
+  pelvic-ring:
+    _prefix: 61
+    stable:
+      _classifications:
+        A1: ""
+        A2: ""
+        A3: ""
+    partially-stable:
+      _classifications:
+        B1: ""
+        B2: ""
+        B3: ""
+    unstable:
+      _classifications:
+        C1: ""
+        C2: ""
+        C3: ""
+  acetabulum:
+    _prefix: 62
+    partial-one-column:
+      _prefix: A
+      _classifications:
+        1: "posterior wall"
+        2: "posterior column"
+        3: "anterior"
+    partial-transverse:
+      _prefix: B
+      _classifications:
+        1: "transverse"
+        2: "t-shaped"
+        3: "anterior column, posterior hemi-transverse"
+    complete:
+      _prefix: C
+      _classifications:
+        1: "high"
+        2: "low"
+        3: "involving sacroiliac"

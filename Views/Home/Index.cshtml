@@ -1,0 +1,131 @@
+﻿<div class="container-fluid" ng-controller="FracRegCtrl">
+    <div class="row">
+		<h1>Frakturregister</h1>
+    </div>
+    <div class="row">
+	<div role="tabpanel">
+	    <!-- Nav tabs -->
+	    <ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#previous-procedures" aria-controls="previous-procedures" role="tab" data-toggle="tab">Tidligere prosedyrer</a></li>
+		<li role="presentation"><a href="#injury-info" aria-controls="injury-info" role="tab" data-toggle="tab">Skade detaljer</a></li>
+		<li role="presentation"><a href="#procedure-info" aria-controls="procedure-info" role="tab" data-toggle="tab">Prosedyr detaljer</a></li>
+		<li role="presentation"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Oppsumering</a></li>
+	    </ul>
+
+	    <!-- Tab panes -->
+	    <div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="previous-procedures">
+			    <div class="container-fluid">
+		    <div class="row">
+
+		        <!-- facility/procedure selection on one half of screen. -->
+		        <div class="col-md-6">
+		            <div class="row">
+			        <div class="panel panel-default">
+				    <div class="panel-heading">Anlegg</div>
+				    <div class="panel-body">
+				        <table fracreg-facilities-table>
+					    <thead>
+					        <tr>
+						    <th data-field="state" data-checkbox="true"></th>
+						    <th data-field="facility" data-align="right">Facility</th>
+					        </tr>
+					    </thead>
+				        </table>
+
+				    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="panel panel-default">
+				    <div class="panel-heading">Prosedyr</div>
+				    <div class="panel-body">
+				        <table fracreg-previous-procedures-table>
+					    <thead>
+					        <tr>
+						    <th data-field="state" data-checkbox="true"></th>
+						    <th data-field="facility" data-align="right">Facility</th>
+					        </tr>
+					    </thead>
+				        </table>
+				    </div>
+			        </div>
+		            </div>
+		        </div>
+
+		        <!-- complications on another half -->
+		        <div class="col-md-6">
+			    <div ng-if="previousFacility">
+			        <div class="row">
+
+		                    <div class="col-md-12">
+				        <div class="panel panel-default">
+				            <div class="panel-heading">Ikke komplikasjoner</div>
+				            <div class="panel-body">
+					        <form>
+					            <div ng-repeat="comp in noneComplications">
+						        <input type="checkbox"
+						               value="{{comp.text}}"
+						               ng-model="comp.selected"> {{comp.text}}
+					            </div>
+					        </form>
+				            </div>
+				        </div>
+		                    </div>
+		                </div>
+
+			        <div class="row">
+		                    <div class="col-md-12">
+				        <div class="panel panel-default">
+				            <div class="panel-heading">Lett komplikasjoner</div>
+				            <div class="panel-body">
+					        <form>
+					            <div ng-repeat="comp in simpleComplications">
+						        <input type="checkbox"
+						               value="{{comp.text}}"
+						               ng-model="comp.selected"> {{comp.text}}
+					            </div>
+					        </form>
+				            </div>
+				        </div>
+		                    </div>
+			        </div>
+
+			        <div class="row">
+		                    <div class="col-md-12">
+				        <div class="panel panel-default">
+				            <div class="panel-heading">Alvorlig komplikasjoner</div>
+				            <div class="panel-body">
+					        <form>
+					            <div ng-repeat="comp in seriousComplications">
+						        <input type="checkbox"
+						               value="{{comp.text}}"
+						               ng-model="comp.selected"> {{comp.text}}
+					            </div>
+					        </form>
+				            </div>
+				        </div>
+		                    </div>
+			        </div>
+
+			    </div>
+		        </div>
+		    </div>
+		</div>
+		</div>
+
+		<div role="tabpanel" class="tab-pane" id="injury-info">
+		    <!-- <%include file="injury_info.mak"/> -->
+		</div>
+
+		<div role="tabpanel" class="tab-pane" id="procedure-info">
+		    <!-- <%include file="procedure_info.mak"/> -->
+		</div>
+
+		<div role="tabpanel" class="tab-pane" id="summary">
+		    <!-- <%include file="summary.mak"/> -->
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>
