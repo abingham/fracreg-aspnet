@@ -1,0 +1,7 @@
+Scripts/*
+!Scripts/built/*
+**/bin/*
+**/obj/*
+Packages/*
+Content/*
+.DS_Store
